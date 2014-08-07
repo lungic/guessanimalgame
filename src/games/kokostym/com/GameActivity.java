@@ -38,6 +38,9 @@ public class GameActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(games.kokostym.com.R.layout.game);
 
+		
+		
+		
 		createOverlay();
 
 		// /Game.setBoard(new Game());
@@ -67,7 +70,7 @@ public class GameActivity extends Activity {
 						public void run() {
 							TimerMethod();
 						}
-					}, 3000);
+					}, 2500);
 
 					return;
 				}
@@ -77,13 +80,14 @@ public class GameActivity extends Activity {
 
 		});
 
+		/*
 		Button b = (Button) findViewById(games.kokostym.com.R.id.Button01);
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startNewGame();
 			}
-		});
+		});*/
 
 		Button tv = (Button) findViewById(games.kokostym.com.R.id.TextView01);
 		tv.setOnClickListener(new OnClickListener() {
@@ -98,7 +102,7 @@ public class GameActivity extends Activity {
 			public void run() {
 				TimerMethod();
 			}
-		}, 2000);
+		}, 500);
 	}
 
 	private void createOverlay() {
@@ -128,29 +132,44 @@ public class GameActivity extends Activity {
 		mAdapter.notifyDataSetChanged();
 
 		mLinear.setVisibility(View.INVISIBLE);
-
-		Button tv = (Button) findViewById(games.kokostym.com.R.id.TextView01);
-		tv.setText(g.getCorrect().SwedishName);
-
+		setSoundButtonText(g);
 		enableGui();
 
 		playVoice(g.getCorrect());
+	}
+
+	private void setSoundButtonText(Game g) {
+		Button tv= (Button) findViewById(games.kokostym.com.R.id.TextView01);
+		switch(Game.getGame().getGameMode()){
+		case letters:
+			tv.setText(R.string.music);
+			break;
+		case numbers:
+			tv.setText(R.string.music);
+			break;
+		default:
+			tv.setText(g.getCorrect().SwedishName);
+			break;
+		}
 	}
 
 	private void disableGui() {
 		GridView gv = (GridView) findViewById(games.kokostym.com.R.id.GridView01);
 		gv.setEnabled(false);
 
-		Button tv = (Button) findViewById(games.kokostym.com.R.id.Button01);
+		/* Button tv = (Button) findViewById(games.kokostym.com.R.id.Button01);
 		tv.setEnabled(false);
+		*/
 	}
 
 	private void enableGui() {
 		GridView gv = (GridView) findViewById(games.kokostym.com.R.id.GridView01);
 		gv.setEnabled(true);
 
+		/*
 		Button tv = (Button) findViewById(games.kokostym.com.R.id.Button01);
 		tv.setEnabled(true);
+		*/
 	}
 
 	private void playSound(Card c) {

@@ -332,4 +332,8 @@ public class Game {
 	public Card getCorrect(){
 		return this.mCards[this.mCorrectPos];
 	}
+
+	public GameCategories getGameMode() {
+			return mCategory;
+	}
 }
