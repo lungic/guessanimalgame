@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/RelativeLayout01"
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent" 
+>
+
+
+
+
+
+<Button 
+ android:layout_height="wrap_content"
+ android:id="@+id/Button01" 
+ android:layout_width="fill_parent"
+ android:text="@string/new_game" 
+ android:layout_alignParentTop="true" 
+ android:layout_alignParentLeft="true"
+ android:gravity="center_horizontal"
+ >
+ </Button>
+
+<Button 
+	android:layout_height="wrap_content" 
+	android:layout_width="fill_parent"
+	android:layout_alignParentBottom="true" 
+	android:id="@+id/TextView01" 
+	android:text="@string/placeholder"
+	android:gravity="center_horizontal"
+	></Button>
+
+<GridView 
+android:id="@+id/GridView01" 
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+android:layout_below="@+id/Button01"
+android:layout_above="@+id/TextView01"
+android:numColumns="2" android:horizontalSpacing="5dp" android:gravity="center_vertical|center"></GridView>
+
+
+</RelativeLayout>
